@@ -1,0 +1,292 @@
+$langitpagi: rgb(71, 192, 239);
+$langitmalam: #1d1f2d;
+
+$ukuranTombol: 1.2;
+
+$lebartombol: 220px;
+$transformPergerakan: calc($lebartombol - 100px);
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: .5s;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f1f1f1;
+
+    &.darkmode{
+        background-color: #212439;
+    }
+
+    .button{
+        width: $lebartombol;
+        height: 100px;
+        border-radius: 50px;
+        padding: 10px;
+        background-color: $langitpagi;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 2px 1px 1px white;
+        cursor: pointer;
+
+        transform: scale($ukuranTombol);
+
+        &.active{
+            background-color: $langitmalam;
+        }
+
+        &::after{
+            content: '';
+            width: 100%;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            border-radius: 50px;
+            box-shadow: inset 0 4px 4px 2px rgba(0, 0, 0, 0.578),
+                    inset 0 0 10px 5px rgba(0, 0, 0, 0.219);
+
+        }
+
+        .toggles{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .toggle{
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                background-color: #fbbf29;
+                z-index: 1;
+                position: inherit;
+                overflow: hidden;
+                box-shadow: 1px 3px 5px 1px rgba(0, 0, 0, 0.416);
+
+                &::after{
+                    top: 0;
+                    position: absolute;
+                    width: inherit;
+                    height: inherit;
+                    border-radius: 50%;
+                    content: '';
+                    box-shadow: inset 1px 1px 3px 1px rgba(255, 255, 255, 0.82),
+                            inset 0px -1px 3px 1px rgba(0, 0, 0, 0.587);
+                }
+
+                &.active{
+                    transform: translateX($transformPergerakan);
+                }
+
+                .moon{
+                    width: inherit;
+                    height: inherit;
+                    background-color: #d0d7e6ed;
+                    border-radius: 50%;
+                    transform: translateX($transformPergerakan);
+
+                    &.active{
+                        transform: translatex(0);
+                    }
+
+                    .circle{
+                        background-color: #959db5;
+                        box-shadow: inset 0 1px 2px 1px rgba(0, 0, 0, 0.203);
+                        width: 15px;
+                        height: 15px;
+                        border-radius: 50%;
+
+                        &.circle-1{
+                            transform: translate(35px, 15px);
+                        }
+
+                        &.circle-2{
+                            transform: translate(50px, 30px);
+                        }
+
+                        &.circle-3{
+                            width: 25px;
+                            height: 25px;
+                            transform: translate(15px, 5px);
+                        }
+                    }
+                }
+            }
+
+            .light-toggle{
+                background-color: white;
+                opacity: .05;
+                border-radius: 50%;
+                position: absolute;
+
+                &.active{
+                    transform: translateX($transformPergerakan);
+                }
+
+                &.satu{
+                    width: 140px;
+                    height: 140px;
+                }
+
+                &.dua{
+                    width: 200px;
+                    height: 200px;
+                }
+
+                &.tiga{
+                    width: 260px;
+                    height: 260px;
+                }
+            }
+        }
+
+        .pagi{
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            transform: translateY(100%);
+
+            &.active{
+                transform: translate(0);
+            }
+
+            .sky{
+                transform: translateY(130px);
+
+                .circle{
+                    border-radius: 50%;
+                    background-color: white;
+                    position: absolute;
+                    bottom: 0;
+                    width: 50px;
+                    height: 50px;
+
+                    &.circle-1{
+                        width: 40px;
+                        height: 40px;
+                    }
+
+                    &.circle-2{
+                        transform: translate(30px, -5px);
+                    }
+
+                    &.circle-3{
+                        transform: translate(60px, -10px);
+                    }
+
+                    &.circle-4{
+                        transform: translate(85px, -5px);
+                    }
+
+                    &.circle-5{
+                        transform: translate(110px, -12px);
+                    }
+
+                    &.circle-6{
+                        width: 70px;
+                        height: 70px;
+                        transform: translate(135px, -15px);
+                    }
+
+                    &.circle-7{
+                        width: 100px;
+                        height: 100px;
+                        transform: translate(160px, -5px);
+                    }
+                }
+            }
+
+            .sky.dua{
+                transform: translate(5px, 115px);
+                opacity: .4;
+            }
+        }
+
+        .malam{
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            transform: translateY(-100%);
+
+            &.active{
+                transform: translate(0);
+            }
+            
+            .circle{
+                clip-path: polygon(50% 0%, 61% 35%, 97% 44%, 62% 57%, 48% 89%, 38% 57%, 0 45%, 39% 35%);
+                width: 8px;
+                height: 8px;
+                background-color: white;
+                animation: animasiBintangMalam 5s infinite ease-in-out;
+
+                &.big{
+                    width: 15px;
+                    height: 15px;
+                }
+
+                &.small{
+                    width: 5px;
+                    height: 5px;
+                }
+
+                &.circle-1{
+                    transform: translate(30px, 20px);
+                    animation-delay: .5;
+                }
+
+                &.circle-2{
+                    transform: translate(10px, 20px);
+                    animation-delay: 1s;
+                }
+
+                &.circle-3{
+                    transform: translate(40px, 15px);
+                    animation-delay: 1.5s;
+                }
+
+                &.circle-4{
+                    transform: translate(90px, 0px);
+                    animation-delay: 2s;
+                }
+
+                &.circle-5{
+                    transform: translate(85px, 20px);
+                    animation-delay: 2.5s;
+                }
+
+                &.circle-6{
+                    transform: translate(20px, 30px);
+                    animation-delay: 3s;
+                }
+
+                &.circle-7{
+                    transform: translate(40px, 20px);
+                    animation-delay: 3.5s;
+                }
+                &.circle-8{
+                    transform: translate(20px, 5px);
+                    animation-delay: 4s;
+                }
+            }
+        }
+    }
+}
+
+
+@keyframes animasiBintangMalam{
+    0%{
+        opacity: 1;
+    } 70%{
+        opacity: 0;
+    } 100%{
+        opacity: 1;
+    }
+}

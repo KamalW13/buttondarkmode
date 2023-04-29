@@ -1,0 +1,240 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: 0.5s;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f1f1;
+}
+body.darkmode {
+  background-color: #212439;
+}
+body .button {
+  width: 220px;
+  height: 100px;
+  border-radius: 50px;
+  padding: 10px;
+  background-color: rgb(71, 192, 239);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 2px 1px 1px white;
+  cursor: pointer;
+  transform: scale(1.2);
+}
+body .button.active {
+  background-color: #1d1f2d;
+}
+body .button::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  border-radius: 50px;
+  box-shadow: inset 0 4px 4px 2px rgba(0, 0, 0, 0.578), inset 0 0 10px 5px rgba(0, 0, 0, 0.219);
+}
+body .button .toggles {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .button .toggles .toggle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #fbbf29;
+  z-index: 1;
+  position: inherit;
+  overflow: hidden;
+  box-shadow: 1px 3px 5px 1px rgba(0, 0, 0, 0.416);
+}
+body .button .toggles .toggle::after {
+  top: 0;
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  content: "";
+  box-shadow: inset 1px 1px 3px 1px rgba(255, 255, 255, 0.82), inset 0px -1px 3px 1px rgba(0, 0, 0, 0.587);
+}
+body .button .toggles .toggle.active {
+  transform: translateX(120px);
+}
+body .button .toggles .toggle .moon {
+  width: inherit;
+  height: inherit;
+  background-color: rgba(208, 215, 230, 0.9294117647);
+  border-radius: 50%;
+  transform: translateX(120px);
+}
+body .button .toggles .toggle .moon.active {
+  transform: translatex(0);
+}
+body .button .toggles .toggle .moon .circle {
+  background-color: #959db5;
+  box-shadow: inset 0 1px 2px 1px rgba(0, 0, 0, 0.203);
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+body .button .toggles .toggle .moon .circle.circle-1 {
+  transform: translate(35px, 15px);
+}
+body .button .toggles .toggle .moon .circle.circle-2 {
+  transform: translate(50px, 30px);
+}
+body .button .toggles .toggle .moon .circle.circle-3 {
+  width: 25px;
+  height: 25px;
+  transform: translate(15px, 5px);
+}
+body .button .toggles .light-toggle {
+  background-color: white;
+  opacity: 0.05;
+  border-radius: 50%;
+  position: absolute;
+}
+body .button .toggles .light-toggle.active {
+  transform: translateX(120px);
+}
+body .button .toggles .light-toggle.satu {
+  width: 140px;
+  height: 140px;
+}
+body .button .toggles .light-toggle.dua {
+  width: 200px;
+  height: 200px;
+}
+body .button .toggles .light-toggle.tiga {
+  width: 260px;
+  height: 260px;
+}
+body .button .pagi {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  transform: translateY(100%);
+}
+body .button .pagi.active {
+  transform: translate(0);
+}
+body .button .pagi .sky {
+  transform: translateY(130px);
+}
+body .button .pagi .sky .circle {
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+}
+body .button .pagi .sky .circle.circle-1 {
+  width: 40px;
+  height: 40px;
+}
+body .button .pagi .sky .circle.circle-2 {
+  transform: translate(30px, -5px);
+}
+body .button .pagi .sky .circle.circle-3 {
+  transform: translate(60px, -10px);
+}
+body .button .pagi .sky .circle.circle-4 {
+  transform: translate(85px, -5px);
+}
+body .button .pagi .sky .circle.circle-5 {
+  transform: translate(110px, -12px);
+}
+body .button .pagi .sky .circle.circle-6 {
+  width: 70px;
+  height: 70px;
+  transform: translate(135px, -15px);
+}
+body .button .pagi .sky .circle.circle-7 {
+  width: 100px;
+  height: 100px;
+  transform: translate(160px, -5px);
+}
+body .button .pagi .sky.dua {
+  transform: translate(5px, 115px);
+  opacity: 0.4;
+}
+body .button .malam {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  transform: translateY(-100%);
+}
+body .button .malam.active {
+  transform: translate(0);
+}
+body .button .malam .circle {
+  -webkit-clip-path: polygon(50% 0%, 61% 35%, 97% 44%, 62% 57%, 48% 89%, 38% 57%, 0 45%, 39% 35%);
+          clip-path: polygon(50% 0%, 61% 35%, 97% 44%, 62% 57%, 48% 89%, 38% 57%, 0 45%, 39% 35%);
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  animation: animasiBintangMalam 5s infinite ease-in-out;
+}
+body .button .malam .circle.big {
+  width: 15px;
+  height: 15px;
+}
+body .button .malam .circle.small {
+  width: 5px;
+  height: 5px;
+}
+body .button .malam .circle.circle-1 {
+  transform: translate(30px, 20px);
+  animation-delay: 0.5;
+}
+body .button .malam .circle.circle-2 {
+  transform: translate(10px, 20px);
+  animation-delay: 1s;
+}
+body .button .malam .circle.circle-3 {
+  transform: translate(40px, 15px);
+  animation-delay: 1.5s;
+}
+body .button .malam .circle.circle-4 {
+  transform: translate(90px, 0px);
+  animation-delay: 2s;
+}
+body .button .malam .circle.circle-5 {
+  transform: translate(85px, 20px);
+  animation-delay: 2.5s;
+}
+body .button .malam .circle.circle-6 {
+  transform: translate(20px, 30px);
+  animation-delay: 3s;
+}
+body .button .malam .circle.circle-7 {
+  transform: translate(40px, 20px);
+  animation-delay: 3.5s;
+}
+body .button .malam .circle.circle-8 {
+  transform: translate(20px, 5px);
+  animation-delay: 4s;
+}
+
+@keyframes animasiBintangMalam {
+  0% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}/*# sourceMappingURL=style.css.map */
